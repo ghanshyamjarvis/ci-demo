@@ -1,16 +1,15 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
 jobs:
   build:
-    executor:
-      name: node/default
+    docker:
+      - image: circleci/node@1.1.6
     steps:
       - checkout
-      - node:
-          steps:
-            - run: npm install
+      - run: npm install
+
+# Orchestrate our job run sequence
 workflows:
-    build:
-      jobs:
-        - build
+  build_and_test:
+    jobs:
+      - build
+
