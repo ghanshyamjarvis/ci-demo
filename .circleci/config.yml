@@ -13,4 +13,4 @@ jobs:
 workflows:
     build-and-test:
       jobs:
-        - npm start
+        - build-and-test
